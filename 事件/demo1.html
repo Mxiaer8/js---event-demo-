@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JS事件基础</title>
+    <style>
+    div{
+      padding: 100px;
+    }
+    #div2{
+      width: 400px;
+      height:300px;
+      background: #ccc;
+      display: none;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload=function(){
+      var oBtn=document.getElementById('btn');
+      var oDiv=document.getElementById('div2');
+ 
+      oBtn.onclick=function(ev){
+        alert("我是按钮啊！");
+        ev.cancelBubble = true;  //阻止事件冒泡！
+      };
+      document.onclick=function(){
+        alert("我是文档啊！");
+      };
+    }
+    </script>
+  </head>
+  <body>
+    <button type="button" name="button" id='btn'>点我哦</button>
+    <div id='div2'></div>
+  </body>
+</html>

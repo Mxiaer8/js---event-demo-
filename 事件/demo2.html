@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<title>下拉列表的实现</title>
+	<style>
+		#content{
+			display: none;
+		}
+		li{
+			list-style-type: none;
+		}
+	</style>
+</head>
+
+<body>
+	<input type="text" name="select" id="select">
+	<div id="content">
+		<ul>
+			<li>第一个列表点击我</li>
+			<li>第二个列表点击我</li>
+			<li>第三个列表点击我</li>
+			<li>第四个列表点击我</li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function (){
+			var input = document.getElementById("select");
+			var content = document.getElementById("content");
+		
+		input.onclick = function(e) {
+			content.style.display = 'block';
+			e.cancelBubble = true;   //阻止事件冒泡！
+		}
+		document.onclick = function(e) {
+			content.style.display = 'none';
+		}
+		content.onclick = function(e) {  //事件委托！
+			alert(e.target.innerHTML);
+			e.cancelBubble = true; 
+		}
+	}
+
+	</script>
+</body>
